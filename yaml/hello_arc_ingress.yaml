@@ -1,12 +1,18 @@
 apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: nginx
+spec:
+---
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-arc-ingress
   namespace: hello-arc
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
