@@ -26,6 +26,8 @@ spec:
       labels:
         app: hello-arc
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: hello-arc
         image: liorkamrat/hello-arc:latest
